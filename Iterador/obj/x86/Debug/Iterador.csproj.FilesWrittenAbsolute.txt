@@ -1,0 +1,5 @@
+/home/luis/Público/Iterador/Iterador/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/luis/Público/Iterador/Iterador/bin/Debug/Iterador.exe.mdb
+/home/luis/Público/Iterador/Iterador/bin/Debug/Iterador.exe
+/home/luis/Público/Iterador/Iterador/obj/x86/Debug/Iterador.exe
+/home/luis/Público/Iterador/Iterador/obj/x86/Debug/Iterador.exe.mdb
