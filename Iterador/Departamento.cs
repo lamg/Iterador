@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Iterador
 {
-    class Departamento:Agregado 
+    public class Departamento:Agregado 
     {
         Equipajes[,] equipajes;
 
@@ -14,7 +10,7 @@ namespace Iterador
         public Departamento()
         {
             equipajes = new Equipajes[12, 31];
-            Equipaje aux = new Equipaje("");
+            /*Equipaje aux = new Equipaje("");
             Equipaje[] aux2 = new Equipaje[1];
             aux2[0] = aux;
 
@@ -24,7 +20,7 @@ namespace Iterador
                 {
                     equipajes[i, j] = new Equipajes(aux2);
                 }
-            }
+            }*/
            
         }
 
@@ -34,7 +30,7 @@ namespace Iterador
         }
         public Equipajes GetDepartamento(int mes, int dia)
         {
-            return equipajes[mes, dia]; 
+            return equipajes[mes, dia];
         }
         public override object crearIterador()
         {

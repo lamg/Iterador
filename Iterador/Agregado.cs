@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterador
 {
-    abstract class Agregado
+    public abstract class Agregado
     {
         public abstract object crearIterador();
     }

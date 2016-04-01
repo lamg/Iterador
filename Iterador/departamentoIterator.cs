@@ -9,11 +9,14 @@ namespace Iterador
     class departamentoIterator:Iterador
     {
         Equipajes[,] equipajes;
-        int positionM;
+        int positionM, ind;
         int positionD;
+		bool b;
+
         public departamentoIterator(Equipajes[,] matrix)
         {
             equipajes = matrix;
+			ind = 0;
             positionM = 0;
             positionD = 0;
         }
@@ -30,19 +33,19 @@ namespace Iterador
 
         public override bool HasNext()
         {
-            if (positionM < equipajes.GetLength(0) && positionD < equipajes.GetLength(1))
-                return true;
-            return false;
+			return equipajes != null && b && positionM < equipajes.GetLength(0) && positionD < equipajes.GetLength(1);            
         }
 
         public override void Next()
         {
-            if (positionD == 30)
-            {
-                positionD = 0;
-                positionM++;
-            }
-            positionD++;
+			b = false;
+			while (!b && ind != equipajes.Length) {
+				positionM = ind / equipajes.GetLength (1);
+				positionD = ind % equipajes.GetLength (1);
+				b = equipajes [positionM, positionD] != null;
+				ind++;
+			}
+
         }
        
         public int GetPositionM()

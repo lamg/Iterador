@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{61BAACCE-9433-47DF-B81B-0EE112355845}</ProjectGuid>
+    <ProjectGuid>{010D1393-76FF-4B9B-A0EB-07691F17E6EA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Iterador</RootNamespace>
-    <AssemblyName>Iterador</AssemblyName>
+    <RootNamespace>EquipajesAdm</RootNamespace>
+    <AssemblyName>EquipajesAdm</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -31,14 +31,19 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuscarEquipaje.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Iterador.cs" />
-    <Compile Include="equipajesIterator.cs" />
-    <Compile Include="Equipajes.cs" />
-    <Compile Include="Equipaje.cs" />
-    <Compile Include="departamentoIterator.cs" />
-    <Compile Include="Departamento.cs" />
-    <Compile Include="Agregado.cs" />
-    <Compile Include="ControlEquipajes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iterador\Iterador.csproj">
+      <Project>{61BAACCE-9433-47DF-B81B-0EE112355845}</Project>
+      <Name>Iterador</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

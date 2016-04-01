@@ -13,7 +13,7 @@ namespace Iterador
         public equipajesIterator(Equipaje[] equipajesarray)
         {
             this.equipajes = equipajesarray;
-            position = 0;
+			position = equipajes != null ? 0 : -1;
         }
 
         public override object Current()
@@ -28,9 +28,7 @@ namespace Iterador
 
         public override bool HasNext()
         {
-            if (position < equipajes.Length)
-                return true;
-            return false;
+			return 0 <= position && position < equipajes.Length;           
         }
 
         public override void Next()

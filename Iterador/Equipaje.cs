@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterador
 {
-    class Equipaje
+    public class Equipaje
     {
         string identificador;
 
@@ -18,5 +18,20 @@ namespace Iterador
         {
             return identificador;
         }
+
+		public override bool Equals (object obj)
+		{
+			return obj as Equipaje != null && obj.ToString () == identificador;
+		}
+
+		public override int GetHashCode ()
+		{
+			return identificador.GetHashCode ();
+		}
+
+		public override string ToString ()
+		{
+			return identificador;
+		}
     }
 }

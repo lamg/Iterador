@@ -1,0 +1,7 @@
+/home/luis/Público/Iterador/EquipajesAdm/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/luis/Público/Iterador/EquipajesAdm/bin/Debug/EquipajesAdm.exe.mdb
+/home/luis/Público/Iterador/EquipajesAdm/bin/Debug/EquipajesAdm.exe
+/home/luis/Público/Iterador/EquipajesAdm/obj/x86/Debug/EquipajesAdm.exe
+/home/luis/Público/Iterador/EquipajesAdm/obj/x86/Debug/EquipajesAdm.exe.mdb
+/home/luis/Público/Iterador/EquipajesAdm/bin/Debug/Iterador.exe
+/home/luis/Público/Iterador/EquipajesAdm/bin/Debug/Iterador.exe.mdb
