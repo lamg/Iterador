@@ -1,0 +1,5 @@
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\Iterador\obj\x86\Debug\Iterador.exe
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\Iterador\bin\Debug\Iterador.exe
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\Iterador\bin\Debug\Iterador.pdb
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\Iterador\obj\x86\Debug\Iterador.csprojResolveAssemblyReference.cache
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\Iterador\obj\x86\Debug\Iterador.pdb

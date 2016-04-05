@@ -11,9 +11,10 @@ namespace Iterador
             this.equipajes = equipajes;
         }
 
-        public Equipaje[] GetEquipajes()
+        public Equipaje[] EquipajesL
         {
-            return equipajes;
+            get { return equipajes; }
+            set { equipajes = value; }
 
         }
         public void SetEquipajes(int pos , Equipaje equip)

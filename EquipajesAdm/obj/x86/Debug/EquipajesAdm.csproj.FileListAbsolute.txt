@@ -1,0 +1,9 @@
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\obj\x86\Debug\EquipajesAdm.exe
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\bin\Debug\EquipajesAdm.exe
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\bin\Debug\EquipajesAdm.pdb
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\bin\Debug\Iterador.exe
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\bin\Debug\Iterador.pdb
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\obj\x86\Debug\EquipajesAdm.csprojResolveAssemblyReference.cache
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\obj\x86\Debug\EquipajesAdm.pdb
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\obj\x86\Debug\EquipajesAdm.BuscarEquipaje.resources
+C:\Users\Phenrir\Documents\Visual Studio 2015\Projects\Iterador-master\Iterador-master\EquipajesAdm\obj\x86\Debug\EquipajesAdm.csproj.GenerateResource.Cache

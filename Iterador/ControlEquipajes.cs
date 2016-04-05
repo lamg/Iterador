@@ -5,6 +5,8 @@ namespace Iterador
 	public class ControlEquipajes
 	{
 		public static bool BuscarEquipaje(string nombre, int mes,int dia, Departamento d){
+            mes--;
+            dia--;
 			var it = (departamentoIterator)d.crearIterador();
 			bool e = false;//e == el equipaje existe en el segmento buscado
 			it.Next();
@@ -44,8 +46,8 @@ namespace Iterador
 
 
 			Departamento d1 = new Departamento();
-			d1.SetDepartamento(3,12,equipajes1);
-			d1.SetDepartamento(2,30,equipajes2);
+			d1.SetDepartamento(4,12,equipajes1);
+			d1.SetDepartamento(3,30,equipajes2);
 			d1.SetDepartamento(5,20,equipajes3);
 			return d1;
 

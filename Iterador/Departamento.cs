@@ -26,11 +26,11 @@ namespace Iterador
 
         public void SetDepartamento(int mes , int dia , Equipajes eq)
         {
-            equipajes[mes, dia] = eq;
+            equipajes[mes-1, dia-1] = eq;
         }
         public Equipajes GetDepartamento(int mes, int dia)
         {
-            return equipajes[mes, dia];
+            return equipajes[mes-1, dia-1];
         }
         public override object crearIterador()
         {

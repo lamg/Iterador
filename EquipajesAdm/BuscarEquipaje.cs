@@ -6,79 +6,50 @@ namespace EquipajesAdm
 {
 	public class BuscarEquipaje:Form
 	{
-		NumericUpDown dia, mes;
-		Label ldia, lmes, lres;
 		TextBox nEqp;
-		Button bsc,add;
+		Button bsc,add, del;
 		Iterador.Departamento d;
+        MonthCalendar cal;
+        ListView lv;
 
 		public BuscarEquipaje ()
 		{
 			d = Iterador.ControlEquipajes.Prueba ();
 			
 			Text = "Administrar equipaje";
-			Width = 400;
+			Width = 500;
 			Height = 300;
 
-			dia = new NumericUpDown ();
-			dia.DecimalPlaces = 0;
-			dia.Minimum = 1;
-			dia.Maximum = 31;
-			dia.Width = 40;
-			dia.Height = 10;
-			dia.Top = 10;
-			dia.Left = 60;
-			dia.Show ();
+            cal = new MonthCalendar();        
+            cal.MinDate = new DateTime(2015, 1, 1);
+            cal.MaxDate = new DateTime(2015, 12, 31);
+            cal.ShowToday = false;
+            cal.Top = 10;
+            cal.Left = 20;
+            cal.DateSelected += Cal_DateSelected;
+            cal.Show();
 
-			ldia = new Label ();
-			ldia.Text = "Día";
-			ldia.Width = 20;
-			ldia.Height = dia.Height;
-			ldia.Top = dia.Top;
-			ldia.Left = dia.Left - (ldia.Width + 20);
-			ldia.Show ();
+            lv = new ListView();
+            lv.Top = cal.Top;
+            lv.Left = cal.Left + cal.Width + 30;
+            lv.Width = 192;
+            lv.Height = 162;
+            lv.View = View.List;
+            lv.Show();
 
-			mes = new NumericUpDown ();
-			mes.DecimalPlaces = 0;
-			mes.Minimum = 1;
-			mes.Maximum = 12;
-			mes.Width = dia.Width;
-			mes.Height = dia.Height;
-			mes.Top = dia.Top + dia.Height + 10;
-			mes.Left = dia.Left;
-			mes.Show ();
-
-			lmes = new Label ();
-			lmes.Text = "Mes";
-			lmes.Width = 25;
-			lmes.Height = mes.Height;
-			lmes.Top = mes.Top;
-			lmes.Left = mes.Left - (lmes.Width + 20);
-			lmes.Show ();
-
-			nEqp = new TextBox ();
-			nEqp.Width = 60;
-			nEqp.Height = dia.Height;
-			nEqp.Top = dia.Top;
-			nEqp.Left = dia.Left + nEqp.Width + 10;
-			nEqp.GotFocus += (object sender, EventArgs e) => lres.Text = "";
+            nEqp = new TextBox ();
+			nEqp.Width = lv.Width;
+			nEqp.Height = 10;
+			nEqp.Top = cal.Top + cal.Height + 20;
+			nEqp.Left = lv.Left;
 			nEqp.Show ();
-
-			lres = new Label ();
-			//lres.Width = 60;
-			lres.AutoSize = true;
-			lres.Height = nEqp.Height;
-			lres.Top = nEqp.Top;
-			lres.Left = nEqp.Left + nEqp.Width + 10;
-
-			lres.Show ();
 
 			bsc = new Button ();
 			bsc.Width = 60;
 			bsc.Height = 20;
 			bsc.Text = "Buscar";
-			bsc.Top = Height - (bsc.Height + 40);
-			bsc.Left = Width - (bsc.Width + 40);
+			bsc.Top = nEqp.Top + 30;
+			bsc.Left = lv.Left;
 			bsc.Click += Bsc_Click;
 			bsc.Show ();
 
@@ -87,27 +58,67 @@ namespace EquipajesAdm
 			add.Height = bsc.Height;
 			add.Text = "Añadir";
 			add.Top = bsc.Top;
-			add.Left = bsc.Left - (add.Width + 20);
+			add.Left = bsc.Left + bsc.Width + 10;
 			add.Click += Add_Click;
 			add.Show ();
 
-			Controls.Add (dia);
-			Controls.Add (ldia);
-			Controls.Add (mes);
-			Controls.Add (lmes);
-			Controls.Add (nEqp);
+            del = new Button();
+            del.Text = "Borrar";
+            del.Height = bsc.Height;
+            del.Width = bsc.Width;
+            del.Top = bsc.Top;
+            del.Left = add.Left + add.Width + 10;
+            del.Click += Del_Click;
+            del.Show();
+
+            Controls.Add(lv);
+            Controls.Add(cal);
+		    Controls.Add (nEqp);
 			Controls.Add (bsc);
-			Controls.Add (lres);
 			Controls.Add (add);
+            Controls.Add(del);
 		}
 
-		void Add_Click (object sender, EventArgs e)
+        private void Del_Click(object sender, EventArgs e)
+        {            
+            var qs = new List<Iterador.Equipaje>(d.GetDepartamento(Mes, Dia).EquipajesL);
+            
+            foreach (var i in lv.SelectedIndices)
+            {
+                lv.Items.RemoveAt((int)i);
+                qs.RemoveAt((int)i);
+            }
+            d.SetDepartamento(Mes, Dia, new Iterador.Equipajes(qs.ToArray()));
+            nEqp.Clear();
+        }
+
+        private void Cal_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            Mes = e.Start.Month;
+            Dia = e.Start.Day;
+            FillList();
+        }
+
+        void FillList() {
+            lv.Items.Clear();
+            var eqs = d.GetDepartamento(Mes, Dia);
+            if (eqs != null)
+            {
+                var ls = eqs.EquipajesL;
+                foreach (var i in ls)
+                {
+                    lv.Items.Add(i.ToString());
+                }
+            }
+        }
+
+        void Add_Click (object sender, EventArgs e)
 		{
-			var eqs = d.GetDepartamento((int)mes.Value-1,(int)dia.Value-1);
+			var eqs = d.GetDepartamento(Mes,Dia);
 			var ne = new Iterador.Equipaje (nEqp.Text);
 			string msg = "Añadido correctamente";
 			if (eqs != null) {
-				var ls = new List<Iterador.Equipaje> (eqs.GetEquipajes ());
+				var ls = new List<Iterador.Equipaje> (eqs.EquipajesL);
 				if (!ls.Contains (ne)) {
 					ls.Add (ne);
 				} else {
@@ -118,24 +129,38 @@ namespace EquipajesAdm
 				eqs = new Iterador.Equipajes (new Iterador.Equipaje[]{ ne });
 			}
 			d.SetDepartamento (Mes, Dia, eqs);
-			lres.Text = msg;
+            FillList();
+			MessageBox.Show(msg);
+            nEqp.Clear();
 
-
-		}
+        }
 
 		int Dia{
-			get { return (int)dia.Value - 1;}
+            get; set;
 		}
 
 		int Mes {
-			get { return (int)mes.Value - 1;}
+            get; set;
 		}
 
-		void Bsc_Click (object sender, EventArgs e)
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // BuscarEquipaje
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "BuscarEquipaje";
+            this.ResumeLayout(false);
+
+        }
+
+        void Bsc_Click (object sender, EventArgs e)
 		{
 			bool r = Iterador.ControlEquipajes.BuscarEquipaje (nEqp.Text, Mes, Dia, d);
-			lres.Text = String.Format ("El equipaje {0}ha sido encontrado", r ? "" : "no ");
-		}
+			MessageBox.Show(String.Format ("El equipaje {0}ha sido encontrado", r ? "" : "no "));
+            nEqp.Clear();
+        }
 	}
 }
 
