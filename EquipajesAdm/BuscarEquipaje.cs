@@ -48,7 +48,7 @@ namespace EquipajesAdm
 			bsc.Width = 60;
 			bsc.Height = 20;
 			bsc.Text = "Buscar";
-			bsc.Top = nEqp.Top + 30;
+			bsc.Top = nEqp.Top + nEqp.Height + 30;
 			bsc.Left = lv.Left;
 			bsc.Click += Bsc_Click;
 			bsc.Show ();

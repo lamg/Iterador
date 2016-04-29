@@ -5,3 +5,4 @@
 /home/luis/Público/Iterador/EquipajesAdm/obj/x86/Debug/EquipajesAdm.exe.mdb
 /home/luis/Público/Iterador/EquipajesAdm/bin/Debug/Iterador.exe
 /home/luis/Público/Iterador/EquipajesAdm/bin/Debug/Iterador.exe.mdb
+/home/luis/Público/Iterador/EquipajesAdm/obj/x86/Debug/EquipajesAdm.BuscarEquipaje.resources
